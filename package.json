@@ -1,0 +1,23 @@
+{
+  "name": "smart-mirror",
+  "version": "0.0.1",
+  "description": "Smart Mirror application to make your every morning's look into the mirror cooler and more informative.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GI4U/SmartMirror.git"
+  },
+  "keywords": [
+    "smart",
+    "mirror"
+  ],
+  "author": "Marius Runde <marius.runde@uni-muenster.de> (http://mariusrunde.de)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/GI4U/SmartMirror/issues"
+  },
+  "homepage": "https://github.com/GI4U/SmartMirror#readme"
+}
