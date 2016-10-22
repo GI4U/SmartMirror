@@ -11,3 +11,4 @@ The TODO elements are listed in order of the desired development.
 - Clock
 - Weather 
 - Calendar
+- Movies (e.g. movie recommendation or cinema news)
