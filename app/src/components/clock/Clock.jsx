@@ -8,22 +8,41 @@
 const React = require('react');
 
 module.exports = React.createClass({
-  // Get the current time
-  getTime: function() {
-    var time = new Date();
-    return time.toLocaleTimeString();;
+
+  // Set the time
+  setTime: function() {
+    var currentDate = new Date();
+    this.setState({
+      time: currentDate.toLocaleTimeString()
+    });
   },
+
+  // Set the time initially
+  componentWillMount: function() {
+    this.setTime();
+  },
+
+  // Set the time interval
+  componentDidMount: function() {
+    this.state.timeInterval = window.setInterval(function() {
+      this.setTime();
+    }.bind(this), 1000);
+  },
+
+  // Clear the time interval
+  componentWillUnmount: function() {
+    clearInterval(this.state.timeInterval);
+  },
+
   // Render the class
   render: function() {
     return(
       <div className="panel panel-default">
-        <div className="panel-heading">
-          Time
-        </div>
         <div className="panel-body">
-          { this.getTime() }
+          { this.state.time }
         </div>
       </div>
     );
   }
+
 });
