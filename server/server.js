@@ -8,9 +8,9 @@
 const config = require('./config');
 
 // Required modules
-const colors     = require('colors');
-const express    = require('express');
-const path       = require('path');
+const colors  = require('colors');
+const express = require('express');
+const path    = require('path');
 
 // --------------------------------------------------
 // Start Message
