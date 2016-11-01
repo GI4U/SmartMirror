@@ -12,6 +12,7 @@ const RANDOM_MOVIE_URL = 'URL_TO_YOUR_MOVIES_API';
 
 module.exports = React.createClass({
 
+  // Initialize the state
   getInitialState: function() {
     return {
       movieTitle: null,
@@ -35,7 +36,7 @@ module.exports = React.createClass({
     });
   },
 
-  // Set the time initially
+  // Load a movie when the component will mount
   componentWillMount: function() {
     this.loadMovie();
   },
