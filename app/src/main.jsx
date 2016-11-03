@@ -17,11 +17,10 @@ const ReactDOM = require('react-dom');
 const Clock   = require('./components/clock/Clock.jsx');
 const Movies  = require('./components/movies/Movies.jsx');
 const Weather = require('./components/weather/Weather.jsx');
+const Welcome = require('./components/welcome/Welcome.jsx');
 
 function render() {
-  //ReactDOM.render(<Clock />, document.getElementById('container'));
-  //ReactDOM.render(<Movies />, document.getElementById('container'));
-  ReactDOM.render(<Weather />, document.getElementById('container'));
+  ReactDOM.render(<Welcome name="Marius" />, document.getElementById('container'));
 }
 
 render();
