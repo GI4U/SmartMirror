@@ -9,6 +9,7 @@ The TODO elements are listed for each topic in order of the desired development.
 - Day-Night option (e.g. switching between modules automatically based on the time)
 
 ## Components
+- Welcome (greeting the user)
 - Clock
 - Weather
 - News
