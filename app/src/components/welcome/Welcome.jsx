@@ -1,12 +1,12 @@
 /**
  * Copyright 2016 Marius Runde
- * 
+ *
  * Welcome component to greet the user based on daytime.
  */
 'use strict';
 
 import React from 'react';
-import './../SmartMirrorComponent.jsx';
+import SmartMirrorComponent from './../../SmartMirrorComponent.jsx';
 
 import { DAYTIME, GREETINGS } from './constants';
 
@@ -14,9 +14,9 @@ class Welcome extends SmartMirrorComponent {
 
   constructor(props) {
     super(props);
-    
+
     this.setGreeting = this.setGreeting.bind(this);
-    
+
     this.state = {
       name: null
     };
@@ -26,7 +26,7 @@ class Welcome extends SmartMirrorComponent {
   setGreeting() {
     var currentDate = new Date();
     var currentHours = currentDate.getHours();
-    
+
     var greeting;
     if (currentHours < DAYTIME.NIGHT) {
       greeting = GREETINGS.NIGHT;
@@ -37,7 +37,7 @@ class Welcome extends SmartMirrorComponent {
     } else {
       greeting = GREETINGS.NIGHT;
     }
-    
+
     this.setState({
       greeting
     });
@@ -65,7 +65,7 @@ class Welcome extends SmartMirrorComponent {
   renderComponent() {
     const { greeting } = this.state;
     const { name } = this.props;
-    
+
     return(
       <h3>{ greeting + ',&nbsp;' + name }</h3>
     );

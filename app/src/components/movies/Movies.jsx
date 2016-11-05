@@ -1,13 +1,13 @@
 /**
  * Copyright 2016 Marius Runde
- * 
+ *
  * Movies component to suggest movies etc.
  */
 'use strict';
 
 import React from 'react';
 import jquery from 'jquery';
-import './../SmartMirrorComponent.jsx';
+import SmartMirrorComponent from './../../SmartMirrorComponent.jsx';
 
 const RANDOM_MOVIE_URL = 'URL_TO_YOUR_MOVIES_API';
 
@@ -17,7 +17,7 @@ class Movies extends SmartMirrorComponent {
     super(props);
 
     this.loadMovie = this.loadMovie.bind(this);
-    
+
     this.state = {
       movieTitle: null,
       movieRuntime: null

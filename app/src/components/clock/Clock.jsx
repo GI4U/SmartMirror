@@ -1,12 +1,12 @@
 /**
  * Copyright 2016 Marius Runde
- * 
+ *
  * Clock component to display the current time.
  */
 'use strict';
 
 import React from 'react';
-import './../SmartMirrorComponent.jsx';
+import SmartMirrorComponent from './../../SmartMirrorComponent.jsx';
 
 class Clock extends SmartMirrorComponent {
 
@@ -14,7 +14,7 @@ class Clock extends SmartMirrorComponent {
     super(props);
 
     this.setTime = this.setTime.bind(this);
-    
+
     this.state = {
       time: null
     };

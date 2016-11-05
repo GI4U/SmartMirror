@@ -1,13 +1,13 @@
 /**
  * Copyright 2016 Marius Runde
- * 
+ *
  * Weather component to display the current weather.
  */
 'use strict';
 
 import React from 'react';
 import jquery from 'jquery';
-import './../SmartMirrorComponent.jsx';
+import SmartMirrorComponent from './../../SmartMirrorComponent.jsx';
 
 const API_KEY     = 'YOUR_API_KEY';
 const LOCATION    = 'YOUR_LOCATION';
