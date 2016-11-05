@@ -10,7 +10,7 @@ import SmartMirrorComponent from './../../SmartMirrorComponent.jsx';
 
 import { DAYTIME, GREETINGS } from './constants';
 
-class Welcome extends SmartMirrorComponent {
+class Welcome extends React.Component {
 
   constructor(props) {
     super(props);
@@ -62,12 +62,14 @@ class Welcome extends SmartMirrorComponent {
   }
 
   // Render the component
-  renderComponent() {
+  render() {
     const { greeting } = this.state;
     const { name } = this.props;
 
     return(
-      <h3>{ greeting + ',&nbsp;' + name }</h3>
+        <SmartMirrorComponent>
+            <h3>{ greeting + ',&nbsp;' + name }</h3>
+        </SmartMirrorComponent>
     );
   }
 }

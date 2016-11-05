@@ -11,7 +11,7 @@ import SmartMirrorComponent from './../../SmartMirrorComponent.jsx';
 
 const RANDOM_MOVIE_URL = 'URL_TO_YOUR_MOVIES_API';
 
-class Movies extends SmartMirrorComponent {
+class Movies extends React.Component {
 
   constructor(props) {
     super(props);
@@ -46,12 +46,13 @@ class Movies extends SmartMirrorComponent {
   }
 
   // Render the component
-  renderComponent() {
+  render() {
     return(
-      <h3>{ this.state.movieTitle }&nbsp;<small>({ this.state.movieRuntime }&nbsp;min)</small></h3>
+        <SmartMirrorComponent>
+            <h3>{ this.state.movieTitle }&nbsp;<small>({ this.state.movieRuntime }&nbsp;min)</small></h3>
+        </SmartMirrorComponent>
     );
   }
-
 }
 
 Movies.propTypes = {

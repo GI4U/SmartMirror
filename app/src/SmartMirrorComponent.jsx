@@ -14,19 +14,15 @@ class SmartMirrorComponent extends React.Component {
     }
 
     // Render the complete component
-    render() {
+    render(props) {
         return (
             <div className="panel panel-default">
                 <div className="panel-body">
-                    {this.props.renderComponent()}
+                    {this.props.children}
                 </div>
             </div>
         );
     }
 }
-
-SmartMirrorComponent.propTypes = {
-    renderComponent: React.PropTypes.func.isRequired
-};
 
 export default SmartMirrorComponent;

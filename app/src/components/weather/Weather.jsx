@@ -14,7 +14,7 @@ const LOCATION    = 'YOUR_LOCATION';
 const WEATHER_URL = 'http://api.openweathermap.org/data/2.5/weather?q=' + LOCATION + '&APPID=' + API_KEY;
 const ICON_URL    = 'http://openweathermap.org/img/w/';
 
-class Weather extends SmartMirrorComponent {
+class Weather extends React.Component {
 
   constructor(props) {
     super(props);
@@ -48,12 +48,14 @@ class Weather extends SmartMirrorComponent {
     this.loadCurrentWeather();
   }
 
-  // Render the class
-  renderComponent() {
-    return(
-      <h3><img src={ this.state.weatherIcon } /> { this.state.currentTemp }°C</h3>
-    );
-  }
+    // Render the class
+    render() {
+        return(
+            <SmartMirrorComponent>
+                <h3><img src={ this.state.weatherIcon } /> { this.state.currentTemp }°C</h3>
+            </SmartMirrorComponent>
+        );
+    }
 }
 
 Weather.propTypes = {
