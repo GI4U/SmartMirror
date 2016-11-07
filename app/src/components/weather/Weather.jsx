@@ -1,30 +1,34 @@
 /**
  * Copyright 2016 Marius Runde
- * 
+ *
  * Weather component to display the current weather.
  */
 'use strict';
 
-const React  = require('react');
-const jquery = require('jquery');
+import React from 'react';
+import jquery from 'jquery';
+import SmartMirrorComponent from './../../SmartMirrorComponent.jsx';
 
 const API_KEY     = 'YOUR_API_KEY';
 const LOCATION    = 'YOUR_LOCATION';
 const WEATHER_URL = 'http://api.openweathermap.org/data/2.5/weather?q=' + LOCATION + '&APPID=' + API_KEY;
 const ICON_URL    = 'http://openweathermap.org/img/w/';
 
-module.exports = React.createClass({
+class Weather extends React.Component {
 
-  // Initialize the state
-  getInitialState: function() {
-    return {
+  constructor(props) {
+    super(props);
+
+    this.loadCurrentWeather = this.loadCurrentWeather.bind(this);
+
+    this.state = {
       weatherIcon: null,
       currentTemp: null
     };
-  },
+  }
 
   // Load the current weather
-  loadCurrentWeather: function() {
+  loadCurrentWeather() {
     jquery.get({
       url: WEATHER_URL,
       success: function(res) {
@@ -37,22 +41,25 @@ module.exports = React.createClass({
         }
       }.bind(this)
     });
-  },
-
-  // Load the current weather when the component will mount
-  componentWillMount: function() {
-    this.loadCurrentWeather();
-  },
-
-  // Render the class
-  render: function() {
-    return(
-      <div className="panel panel-default">
-        <div className="panel-body">
-          <h3><img src={ this.state.weatherIcon } /> { this.state.currentTemp }°C</h3>
-        </div>
-      </div>
-    );
   }
 
-});
+  // Load the current weather when the component will mount
+  componentWillMount() {
+    this.loadCurrentWeather();
+  }
+
+    // Render the class
+    render() {
+        return(
+            <SmartMirrorComponent>
+                <h3><img src={ this.state.weatherIcon } /> { this.state.currentTemp }°C</h3>
+            </SmartMirrorComponent>
+        );
+    }
+}
+
+Weather.propTypes = {
+  // TODO
+};
+
+export default Weather;

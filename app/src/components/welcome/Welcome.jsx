@@ -1,21 +1,32 @@
 /**
  * Copyright 2016 Marius Runde
- * 
+ *
  * Welcome component to greet the user based on daytime.
  */
 'use strict';
 
-const React = require('react');
+import React from 'react';
+import SmartMirrorComponent from './../../SmartMirrorComponent.jsx';
 
-const { DAYTIME, GREETINGS } = require('./constants');
+import { DAYTIME, GREETINGS } from './constants';
 
-module.exports = React.createClass({
+class Welcome extends React.Component {
+
+  constructor(props) {
+    super(props);
+
+    this.setGreeting = this.setGreeting.bind(this);
+
+    this.state = {
+      name: null
+    };
+  }
 
   // Get the greeting for the daytime
   setGreeting() {
     var currentDate = new Date();
     var currentHours = currentDate.getHours();
-    
+
     var greeting;
     if (currentHours < DAYTIME.NIGHT) {
       greeting = GREETINGS.NIGHT;
@@ -26,37 +37,49 @@ module.exports = React.createClass({
     } else {
       greeting = GREETINGS.NIGHT;
     }
-    
+
     this.setState({
       greeting
     });
-  },
+  }
 
   // Set the greeting initially
-  componentWillMount: function() {
+  componentWillMount() {
     this.setGreeting();
-  },
+  }
 
   // Set the time interval
-  componentDidMount: function() {
+  componentDidMount() {
     const thirtyMinutes = 30 * 60 * 1000;
     this.state.timeInterval = window.setInterval(function() {
       this.setGreeting();
     }.bind(this), thirtyMinutes);
-  },
+  }
 
   // Clear the time interval
-  componentWillUnmount: function() {
+  componentWillUnmount() {
     clearInterval(this.state.timeInterval);
-  },
+  }
 
-  // Render the class
-  render: function() {
+  // Render the component
+  render() {
     const { greeting } = this.state;
     const { name } = this.props;
-    
+
     return(
-      <h3>{ greeting + ', ' + name }</h3>
+        <SmartMirrorComponent>
+            <h3>{ greeting + ',&nbsp;' + name }</h3>
+        </SmartMirrorComponent>
     );
   }
-});
+}
+
+Welcome.propTypes = {
+  name: React.PropTypes.string.isRequired
+};
+
+Welcome.defaultProps = {
+  name: 'stranger'
+};
+
+export default Welcome;

@@ -1,27 +1,31 @@
 /**
  * Copyright 2016 Marius Runde
- * 
+ *
  * Movies component to suggest movies etc.
  */
 'use strict';
 
-const React  = require('react');
-const jquery = require('jquery');
+import React from 'react';
+import jquery from 'jquery';
+import SmartMirrorComponent from './../../SmartMirrorComponent.jsx';
 
 const RANDOM_MOVIE_URL = 'URL_TO_YOUR_MOVIES_API';
 
-module.exports = React.createClass({
+class Movies extends React.Component {
 
-  // Initialize the state
-  getInitialState: function() {
-    return {
+  constructor(props) {
+    super(props);
+
+    this.loadMovie = this.loadMovie.bind(this);
+
+    this.state = {
       movieTitle: null,
       movieRuntime: null
     };
-  },
+  }
 
   // Load a movie
-  loadMovie: function() {
+  loadMovie() {
     jquery.get({
       contentType: 'application/json',
       url: RANDOM_MOVIE_URL,
@@ -34,22 +38,25 @@ module.exports = React.createClass({
         }
       }.bind(this)
     });
-  },
-
-  // Load a movie when the component will mount
-  componentWillMount: function() {
-    this.loadMovie();
-  },
-
-  // Render the class
-  render: function() {
-    return(
-      <div className="panel panel-default">
-        <div className="panel-body">
-          <h3>{ this.state.movieTitle } <small>({ this.state.movieRuntime } min)</small></h3>
-        </div>
-      </div>
-    );
   }
 
-});
+  // Load a movie when the component will mount
+  componentWillMount() {
+    this.loadMovie();
+  }
+
+  // Render the component
+  render() {
+    return(
+        <SmartMirrorComponent>
+            <h3>{ this.state.movieTitle }&nbsp;<small>({ this.state.movieRuntime }&nbsp;min)</small></h3>
+        </SmartMirrorComponent>
+    );
+  }
+}
+
+Movies.propTypes = {
+  // TODO
+};
+
+export default Movies;
