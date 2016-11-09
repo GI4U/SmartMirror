@@ -7,9 +7,9 @@
 
 import React from 'react';
 import jquery from 'jquery';
-import SmartMirrorComponent from './../../SmartMirrorComponent.jsx';
+import SmartMirrorComponent from './../../basic/SmartMirrorComponent.jsx';
 
-const RANDOM_MOVIE_URL = 'URL_TO_YOUR_MOVIES_API';
+import { RANDOM_MOVIE_URL } from './constants';
 
 class Movies extends React.Component {
 
@@ -48,7 +48,7 @@ class Movies extends React.Component {
   // Render the component
   render() {
     return(
-        <SmartMirrorComponent>
+        <SmartMirrorComponent componentName="Movies">
             <h3>{ this.state.movieTitle }&nbsp;<small>({ this.state.movieRuntime }&nbsp;min)</small></h3>
         </SmartMirrorComponent>
     );

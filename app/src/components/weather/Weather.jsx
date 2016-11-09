@@ -7,12 +7,9 @@
 
 import React from 'react';
 import jquery from 'jquery';
-import SmartMirrorComponent from './../../SmartMirrorComponent.jsx';
+import SmartMirrorComponent from './../../basic/SmartMirrorComponent.jsx';
 
-const API_KEY     = 'YOUR_API_KEY';
-const LOCATION    = 'YOUR_LOCATION';
-const WEATHER_URL = 'http://api.openweathermap.org/data/2.5/weather?q=' + LOCATION + '&APPID=' + API_KEY;
-const ICON_URL    = 'http://openweathermap.org/img/w/';
+import { ICON_URL, WEATHER_URL } from './constants';
 
 class Weather extends React.Component {
 
@@ -49,13 +46,13 @@ class Weather extends React.Component {
   }
 
     // Render the class
-    render() {
-        return(
-            <SmartMirrorComponent>
-                <h3><img src={ this.state.weatherIcon } /> { this.state.currentTemp }°C</h3>
-            </SmartMirrorComponent>
-        );
-    }
+  render() {
+    return(
+      <SmartMirrorComponent componentName="Weather">
+        <h3><img src={ this.state.weatherIcon } /> { this.state.currentTemp }°C</h3>
+      </SmartMirrorComponent>
+    );
+  }
 }
 
 Weather.propTypes = {

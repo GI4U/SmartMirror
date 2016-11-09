@@ -6,7 +6,7 @@
 'use strict';
 
 import React from 'react';
-import SmartMirrorComponent from './../../SmartMirrorComponent.jsx';
+import SmartMirrorComponent from './../../basic/SmartMirrorComponent.jsx';
 
 class Clock extends SmartMirrorComponent {
 
@@ -46,9 +46,11 @@ class Clock extends SmartMirrorComponent {
   }
 
   // Render the component
-  renderComponent() {
+  render() {
     return(
-      <span>{ this.state.time }</span>
+      <SmartMirrorComponent componentName="Clock">
+        <span>{ this.state.time }</span>
+      </SmartMirrorComponent>
     );
   }
 }

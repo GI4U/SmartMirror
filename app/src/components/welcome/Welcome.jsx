@@ -6,7 +6,8 @@
 'use strict';
 
 import React from 'react';
-import SmartMirrorComponent from './../../SmartMirrorComponent.jsx';
+import { FormGroup, ControlLabel, FormControl } from 'react-bootstrap';
+import SmartMirrorComponent from './../../basic/SmartMirrorComponent.jsx';
 
 import { DAYTIME, GREETINGS } from './constants';
 
@@ -16,9 +17,18 @@ class Welcome extends React.Component {
     super(props);
 
     this.setGreeting = this.setGreeting.bind(this);
+    this.onConfigHasChanged = this.onConfigHasChanged.bind(this);
+    this.onConfigElementHasChanged = this.onConfigElementHasChanged.bind(this);
+
+    const { name } = this.props;
 
     this.state = {
-      name: null
+      display: {
+        name
+      },
+      config: {
+        name
+      }
     };
   }
 
@@ -61,21 +71,73 @@ class Welcome extends React.Component {
     clearInterval(this.state.timeInterval);
   }
 
+  // Called when the config has been saved or cancelled
+  onConfigHasChanged(saved) {
+    if (saved) {
+      this.setState({
+        display: {
+          name: this.state.config.name
+        }
+      });
+    } else {
+      this.setState({
+        config: {
+          name: this.state.display.name
+        }
+      });
+    }
+  }
+
+  // Called when a single config element has been changed
+  onConfigElementHasChanged(e) {
+    switch (e.target.name) {
+      case 'name':
+        this.setState({
+          config: {
+            name: e.target.value
+          }
+        });
+        break;
+    }
+  }
+
+  // Render the config
+  renderConfig() {
+    return (
+      <form>
+        <FormGroup>
+          <ControlLabel>Your name:</ControlLabel>
+          <FormControl
+            type="text"
+            name="name"
+            placeholder="Enter your name here..."
+            value={ this.state.config.name }
+            onChange={ this.onConfigElementHasChanged }
+          />
+        </FormGroup>
+      </form>
+    );
+  }
+
   // Render the component
   render() {
-    const { greeting } = this.state;
-    const { name } = this.props;
+    const { greeting, display } = this.state;
 
     return(
-        <SmartMirrorComponent>
-            <h3>{ greeting + ',&nbsp;' + name }</h3>
-        </SmartMirrorComponent>
+      <SmartMirrorComponent
+        componentName="Welcome"
+        hasConfig={ true }
+        config={ this.renderConfig() }
+        onConfigHasChanged={ this.onConfigHasChanged }
+      >
+        <h3>{ greeting + ', ' + display.name }</h3>
+      </SmartMirrorComponent>
     );
   }
 }
 
 Welcome.propTypes = {
-  name: React.PropTypes.string.isRequired
+  name: React.PropTypes.string
 };
 
 Welcome.defaultProps = {
