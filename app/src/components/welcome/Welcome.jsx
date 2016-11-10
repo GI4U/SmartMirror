@@ -61,6 +61,7 @@ class Welcome extends React.Component {
   // Set the time interval
   componentDidMount() {
     const thirtyMinutes = 30 * 60 * 1000;
+
     this.state.timeInterval = window.setInterval(function() {
       this.setGreeting();
     }.bind(this), thirtyMinutes);
@@ -108,9 +109,9 @@ class Welcome extends React.Component {
         <FormGroup>
           <ControlLabel>Your name:</ControlLabel>
           <FormControl
-            type="text"
-            name="name"
-            placeholder="Enter your name here..."
+            type='text'
+            name='name'
+            placeholder='Enter your name here...'
             value={ this.state.config.name }
             onChange={ this.onConfigElementHasChanged }
           />
@@ -125,7 +126,7 @@ class Welcome extends React.Component {
 
     return(
       <SmartMirrorComponent
-        componentName="Welcome"
+        componentName='Welcome'
         hasConfig={ true }
         config={ this.renderConfig() }
         onConfigHasChanged={ this.onConfigHasChanged }

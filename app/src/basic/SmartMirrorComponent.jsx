@@ -6,6 +6,8 @@
 'use strict';
 
 import React from 'react';
+import { Button } from 'react-bootstrap';
+import FontAwesome from 'react-fontawesome';
 import SmartMirrorComponentConfig from './SmartMirrorComponentConfig.jsx';
 
 class SmartMirrorComponent extends React.Component {
@@ -44,7 +46,9 @@ class SmartMirrorComponent extends React.Component {
 
     return (
       <div>
-        <button className="btn btn-primary" onClick={ this.openConfig }>Config</button>
+        <Button bsStyle='primary' onClick={ this.openConfig } style={{ float: 'right' }}>
+          <FontAwesome name='cog' />
+        </Button>
 
         <SmartMirrorComponentConfig
           componentName={ componentName }
@@ -62,8 +66,8 @@ class SmartMirrorComponent extends React.Component {
     const { hasConfig, config } = this.props;
 
     return (
-      <div className="panel panel-default">
-        <div className="panel-body">
+      <div className='panel panel-default'>
+        <div className='panel-body'>
           { hasConfig ? this.renderConfig() : '' }
           { this.props.children }
         </div>

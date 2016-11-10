@@ -7,6 +7,7 @@
 
 import React from 'react';
 import { Button, Modal } from 'react-bootstrap';
+import FontAwesome from 'react-fontawesome';
 
 class SmartMirrorComponentConfig extends React.Component {
 
@@ -33,17 +34,28 @@ class SmartMirrorComponentConfig extends React.Component {
 
     return (
       <Modal show={ showConfig } onHide={ this.onCancel }>
+
         <Modal.Header closeButton>
           <Modal.Title>{ componentName }</Modal.Title>
         </Modal.Header>
+
         <Modal.Body>
           <p>Configuration of the { componentName } component</p>
           { this.props.children }
         </Modal.Body>
+
         <Modal.Footer>
-          <Button onClick={ this.onCancel }>Cancel</Button>
-          <Button type="submit" bsStyle="primary" onClick={ this.onSave }>Save</Button>
+          <Button bsStyle='danger' onClick={ this.onRemove } style={{ float: 'left' }}>
+            <FontAwesome name='trash-o' style={{ color: 'white' }} />
+          </Button>
+          <Button bsStyle='warning' onClick={ this.onCancel }>
+            <FontAwesome name='ban' style={{ color: 'white' }} /> Cancel
+          </Button>
+          <Button type='submit' bsStyle='primary' onClick={ this.onSave }>
+            <FontAwesome name='floppy-o' style={{ color: 'white' }} /> Save
+          </Button>
         </Modal.Footer>
+
       </Modal>
     );
   }

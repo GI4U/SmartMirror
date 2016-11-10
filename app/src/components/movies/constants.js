@@ -6,8 +6,8 @@
 'use strict';
 
 // URL of the Movies API
-const RANDOM_MOVIE_URL = 'URL_TO_YOUR_MOVIES_API';
+const MOVIES_API_URL = 'http://mariusrunde.de/api/movies';
 
 module.exports = {
-  RANDOM_MOVIE_URL
+  MOVIES_API_URL
 };

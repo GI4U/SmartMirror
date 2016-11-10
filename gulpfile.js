@@ -22,14 +22,26 @@ gulp.task('clean', function() {
     .pipe(clean());
 });
 
-// Copy the HTML and CSS files into the dist directory
-gulp.task('copy', ['clean'], function() {
-  return gulp.src(['app/src/index.html', 'app/lib/bootstrap-css/css/bootstrap.min.css', 'app/src/style.css'])
+// Copy the HTML files into the dist directory
+gulp.task('copyHTML', ['clean'], function() {
+  return gulp.src(['app/src/index.html'])
     .pipe(gulp.dest('app/dist'));
 });
 
+// Copy the CSS files into the dist directory
+gulp.task('copyCSS', ['copyHTML'], function() {
+  return gulp.src(['app/lib/bootstrap-css/css/bootstrap.min.css', 'app/lib/font-awesome/css/font-awesome.min.css'])
+    .pipe(gulp.dest('app/dist'));
+});
+
+// Copy the fonts into the dist/fonts directory
+gulp.task('copyFonts', ['copyCSS'], function() {
+  return gulp.src(['app/lib/font-awesome/fonts/*'])
+    .pipe(gulp.dest('app/dist/fonts'));
+});
+
 // Bundle the JSX components
-gulp.task('bundle', ['copy'], function() {
+gulp.task('bundle', ['copyFonts'], function() {
   return browserify({
     entries: './app/src/main.jsx',
     extensions: ['.jsx'],
