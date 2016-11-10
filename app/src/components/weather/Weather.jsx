@@ -71,7 +71,7 @@ class Weather extends React.Component {
       url: FORECAST_WEATHER_URL + location,
       success: function(res) {
         if (res) {
-          debugger; // TODO
+          // TODO
           this.setState({
             forecastWeather: {
             }
@@ -84,13 +84,12 @@ class Weather extends React.Component {
   // Load the current weather when the component will mount
   componentWillMount() {
     this.loadCurrentWeather();
-    // TODO this.loadForecastWeather();
+    this.loadForecastWeather();
   }
 
   // Set the weather intervals
   componentDidMount() {
     const thirtyMinutes = 30 * 60 * 1000;
-    const threeHours = 3 * 60 * 60 * 1000;
 
     // Interval for current weather
     this.state.currentWeatherInterval = window.setInterval(function() {
@@ -99,8 +98,8 @@ class Weather extends React.Component {
 
     // Interval for forecast weather
     this.state.forecastWeatherInterval = window.setInterval(function() {
-      // TODO this.loadForecastWeather();
-    }.bind(this), threeHours);
+      this.loadForecastWeather();
+    }.bind(this), thirtyMinutes);
   }
 
   // Clear the weather interval
@@ -120,7 +119,7 @@ class Weather extends React.Component {
     } else {
       this.setState({
         config: {
-          location: this.state.display.location
+          location: this.state.app.location
         }
       });
     }
