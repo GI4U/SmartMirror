@@ -23,7 +23,7 @@ class Welcome extends React.Component {
     const { name } = this.props;
 
     this.state = {
-      display: {
+      app: {
         name
       },
       config: {
@@ -75,14 +75,14 @@ class Welcome extends React.Component {
   onConfigHasChanged(saved) {
     if (saved) {
       this.setState({
-        display: {
+        app: {
           name: this.state.config.name
         }
       });
     } else {
       this.setState({
         config: {
-          name: this.state.display.name
+          name: this.state.app.name
         }
       });
     }
@@ -121,7 +121,7 @@ class Welcome extends React.Component {
 
   // Render the component
   render() {
-    const { greeting, display } = this.state;
+    const { greeting, app } = this.state;
 
     return(
       <SmartMirrorComponent
@@ -130,7 +130,7 @@ class Welcome extends React.Component {
         config={ this.renderConfig() }
         onConfigHasChanged={ this.onConfigHasChanged }
       >
-        <h3>{ greeting + ', ' + display.name }</h3>
+        <h3>{ greeting + ', ' + app.name }</h3>
       </SmartMirrorComponent>
     );
   }
