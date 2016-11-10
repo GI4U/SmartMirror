@@ -7,11 +7,13 @@ The TODO elements are listed for each topic in order of the desired development.
  - Multiple instances of modules (e.g. for clock to display the time at different places)
  - Configuration for modules
 - Day-Night option (e.g. switching between modules automatically based on the time)
+- User profiles
 
 ## Components
 - Welcome (greeting the user)
 - Clock
-- Weather
+- Weather (current and forecast weather)
 - News
 - Calendar
 - Movies (e.g. movie recommendation or cinema news)
+- (Radio)
