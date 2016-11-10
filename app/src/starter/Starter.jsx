@@ -13,6 +13,7 @@ class Starter extends React.Component {
     super(props);
 
     this.addComponent = this.addComponent.bind(this);
+    this.removeComponent = this.removeComponent.bind(this);
 
     this.state = {
       components: this.props.components
