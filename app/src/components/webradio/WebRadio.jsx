@@ -17,36 +17,68 @@ class WebRadio extends React.Component {
     this.onConfigHasChanged = this.onConfigHasChanged.bind(this);
     this.onConfigElementHasChanged = this.onConfigElementHasChanged.bind(this);
 
+    const { stream } = this.props;
+
     this.state = {
-      // TODO
+      app: {
+        stream
+      },
+      config: {
+        stream
+      }
     };
   }
 
   // Called when the config has been saved or cancelled
   onConfigHasChanged(saved) {
     if (saved) {
-      // TODO save changed config
+      this.setState({
+        app: this.state.config
+      });
     } else {
-      // TODO reset config state
+      this.setState({
+        config: this.state.app
+      });
     }
   }
 
   // Called when a single config element has been changed
   onConfigElementHasChanged(e) {
-    // TODO
+    switch (e.target.name) {
+      case 'stream':
+        this.setState({
+          config: {
+            stream: e.target.value
+          }
+        });
+        break;
+    }
   }
 
   // Render the config
   renderConfig() {
+    const { stream } = this.state.config;
+
     return (
       <form>
-        TODO
+        <FormGroup>
+          <ControlLabel>Web radio stream:</ControlLabel>
+          <FormControl
+            type='text'
+            name='stream'
+            placeholder='Enter the stream here...'
+            value={ stream }
+            onChange={ this.onConfigElementHasChanged }
+          />
+        </FormGroup>
       </form>
     );
   }
 
   // Render the component
   render() {
+    const { stream } = this.state.app;
+
     return(
       <SmartMirrorComponent
         componentName='WebRadio'
@@ -54,14 +86,16 @@ class WebRadio extends React.Component {
         config={ this.renderConfig() }
         onConfigHasChanged={ this.onConfigHasChanged }
       >
-        TODO
+        <audio src={ stream } controls>
+          Your browser does not support the audio element.
+        </audio>
       </SmartMirrorComponent>
     );
   }
 }
 
 WebRadio.propTypes = {
-  // TODO
+  stream: React.PropTypes.string.isRequired
 };
 
 export default WebRadio;

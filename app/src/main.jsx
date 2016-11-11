@@ -29,7 +29,7 @@ function render() {
   ReactDOM.render(<Movies />, document.getElementById('movies'));
   ReactDOM.render(<News />, document.getElementById('news'));
   ReactDOM.render(<Weather location='Braunschweig' />, document.getElementById('weather'));
-  ReactDOM.render(<WebRadio />, document.getElementById('webradio'));
+  ReactDOM.render(<WebRadio stream='http://1live.akacast.akamaistream.net/7/706/119434/v1/gnl.akacast.akamaistream.net/1live' />, document.getElementById('webradio'));
 }
 
 render();
