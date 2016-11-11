@@ -18,6 +18,7 @@ import Calendar from './components/calendar/Calendar.jsx';
 import Clock from './components/clock/Clock.jsx';
 import Movies from './components/movies/Movies.jsx';
 import News from './components/news/News.jsx';
+import PublicTransportation from './components/publictransportation/PublicTransportation.jsx';
 import Weather from './components/weather/Weather.jsx';
 import WebRadio from './components/webradio/WebRadio.jsx';
 import Welcome from './components/welcome/Welcome.jsx';
