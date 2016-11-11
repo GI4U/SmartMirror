@@ -23,25 +23,25 @@ gulp.task('clean', function() {
 });
 
 // Copy the HTML files into the dist directory
-gulp.task('copyHTML', ['clean'], function() {
+gulp.task('copy_html', ['clean'], function() {
   return gulp.src(['app/src/index.html'])
     .pipe(gulp.dest('app/dist'));
 });
 
 // Copy the CSS files into the dist directory
-gulp.task('copyCSS', ['copyHTML'], function() {
+gulp.task('copy_css', ['copy_html'], function() {
   return gulp.src(['app/lib/bootstrap-css/css/bootstrap.min.css', 'app/lib/font-awesome/css/font-awesome.min.css'])
     .pipe(gulp.dest('app/dist'));
 });
 
 // Copy the fonts into the dist/fonts directory
-gulp.task('copyFonts', ['copyCSS'], function() {
+gulp.task('copy_fonts', ['copy_css'], function() {
   return gulp.src(['app/lib/font-awesome/fonts/*'])
     .pipe(gulp.dest('app/dist/fonts'));
 });
 
 // Bundle the JSX components
-gulp.task('bundle', ['copyFonts'], function() {
+gulp.task('bundle_jsx', ['copy_fonts'], function() {
   return browserify({
     entries: './app/src/main.jsx',
     extensions: ['.jsx'],
@@ -53,4 +53,4 @@ gulp.task('bundle', ['copyFonts'], function() {
 });
 
 // Default gulp task to start the toolchain
-gulp.task('default', ['bundle']);
+gulp.task('default', ['bundle_jsx']);
