@@ -16,4 +16,4 @@ The TODO elements are listed for each topic in order of the desired development.
 - News
 - Calendar
 - Movies (e.g. movie recommendation or cinema news)
-- (Radio)
+- Radio (list of radio channels: https://wiki.ubuntuusers.de/Internetradio/Stationen/)
