@@ -76,15 +76,11 @@ class Welcome extends React.Component {
   onConfigHasChanged(saved) {
     if (saved) {
       this.setState({
-        app: {
-          name: this.state.config.name
-        }
+        app: this.state.config
       });
     } else {
       this.setState({
-        config: {
-          name: this.state.app.name
-        }
+        config: this.state.app
       });
     }
   }
@@ -104,6 +100,8 @@ class Welcome extends React.Component {
 
   // Render the config
   renderConfig() {
+    const { name } = this.state.config;
+
     return (
       <form>
         <FormGroup>
@@ -112,7 +110,7 @@ class Welcome extends React.Component {
             type='text'
             name='name'
             placeholder='Enter your name here...'
-            value={ this.state.config.name }
+            value={ name }
             onChange={ this.onConfigElementHasChanged }
           />
         </FormGroup>
