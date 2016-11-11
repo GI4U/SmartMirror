@@ -30,7 +30,11 @@ gulp.task('copy_html', ['clean'], function() {
 
 // Copy the CSS files into the dist directory
 gulp.task('copy_css', ['copy_html'], function() {
-  return gulp.src(['app/lib/bootstrap-css/css/bootstrap.min.css', 'app/lib/font-awesome/css/font-awesome.min.css'])
+  return gulp.src([
+    'app/lib/bootstrap-css/css/bootstrap.min.css',
+    'app/lib/font-awesome/css/font-awesome.min.css',
+    'app/src/style.css'
+  ])
     .pipe(gulp.dest('app/dist'));
 });
 
@@ -54,3 +58,13 @@ gulp.task('bundle_jsx', ['copy_fonts'], function() {
 
 // Default gulp task to start the toolchain
 gulp.task('default', ['bundle_jsx']);
+
+// --------------------------------------------------
+// Gulp Tasks without Dependencies
+// --------------------------------------------------
+
+// Copy the CSS files into the dist directory
+gulp.task('quick_copy_css', function() {
+  return gulp.src(['app/src/style.css'])
+    .pipe(gulp.dest('app/dist'));
+});

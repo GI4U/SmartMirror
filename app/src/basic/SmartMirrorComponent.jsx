@@ -46,7 +46,7 @@ class SmartMirrorComponent extends React.Component {
 
     return (
       <div>
-        <Button bsStyle='primary' onClick={ this.openConfig } style={{ float: 'right' }}>
+        <Button className='btnConfig' onClick={ this.openConfig }>
           <FontAwesome name='cog' />
         </Button>
 
@@ -67,8 +67,10 @@ class SmartMirrorComponent extends React.Component {
 
     return (
       <div className='panel panel-default'>
-        <div className='panel-body'>
+        <div className='panel-header'>
           { hasConfig ? this.renderConfig() : '' }
+        </div>
+        <div className='panel-body'>
           { this.props.children }
         </div>
       </div>

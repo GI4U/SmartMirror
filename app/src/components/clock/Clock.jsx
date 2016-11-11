@@ -49,7 +49,7 @@ class Clock extends React.Component {
   render() {
     return(
       <SmartMirrorComponent componentName='Clock'>
-        <span>{ this.state.time }</span>
+        <h1>{ this.state.time }</h1>
       </SmartMirrorComponent>
     );
   }

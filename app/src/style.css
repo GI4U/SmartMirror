@@ -1,0 +1,54 @@
+body {
+  background-color: #000;
+}
+
+.component {
+  position: absolute;
+  height: 150px;
+  width: 500px;
+}
+
+.component-top {
+  top: 10px;
+}
+
+.component-center {
+  top: 180px;
+}
+
+.component-bottom {
+  top: 350px;
+}
+
+.component-left {
+  left: 10px;
+}
+
+.component-right {
+  right: 10px;
+}
+
+.panel, .panel-default {
+  background-color: #000;
+  color: #fff;
+  border-color: #000;
+  text-align: center;
+}
+
+.btnConfig {
+  background-color: #000;
+  color: #fff;
+  border-color: #000;
+}
+
+.component-left .btnConfig {
+  float: left;
+}
+
+.component-right .btnConfig {
+  float: right;
+}
+
+h3 small {
+  color: #bbb;
+}

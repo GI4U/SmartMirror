@@ -129,7 +129,7 @@ class Welcome extends React.Component {
         config={ this.renderConfig() }
         onConfigHasChanged={ this.onConfigHasChanged }
       >
-        <h3>{ greeting + ', ' + app.name }</h3>
+        <h1>{ greeting + ', ' + app.name }</h1>
       </SmartMirrorComponent>
     );
   }

@@ -6,7 +6,7 @@
 'use strict';
 
 import React from 'react';
-import { FormGroup, ControlLabel, FormControl } from 'react-bootstrap';
+import { FormGroup, ControlLabel, FormControl, Image } from 'react-bootstrap';
 import jquery from 'jquery';
 import SmartMirrorComponent from './../../basic/SmartMirrorComponent.jsx';
 
@@ -168,7 +168,7 @@ class Weather extends React.Component {
         onConfigHasChanged={ this.onConfigHasChanged }
       >
         <h3>
-          <img src={ currentWeather.icon } /> { currentWeather.temp }°C<br/>
+          <Image src={ currentWeather.icon } circle style={{ backgroundColor: '#fff' }} /> { currentWeather.temp }°C<br/>
           <small>{ app.location }</small>
         </h3>
       </SmartMirrorComponent>
