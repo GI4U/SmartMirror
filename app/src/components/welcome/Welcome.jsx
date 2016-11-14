@@ -45,7 +45,7 @@ class Welcome extends React.Component {
     } else if (currentHours < DAYTIME.AFTERNOON) {
       greeting = GREETINGS.AFTERNOON;
     } else {
-      greeting = GREETINGS.NIGHT;
+      greeting = GREETINGS.EVENING;
     }
 
     this.setState({

@@ -16,7 +16,8 @@ const DAYTIME = {
 const GREETINGS = {
   NIGHT: 'Good night',
   MORNING: 'Good morning',
-  AFTERNOON: 'Hello'
+  AFTERNOON: 'Good afternoon',
+  EVENING: 'Good evening'
 };
 
 module.exports = {
