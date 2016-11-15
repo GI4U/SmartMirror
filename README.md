@@ -1,7 +1,7 @@
 # SmartMirror
 Smart Mirror application to make your every morning's look into the mirror cooler and more informative.
 
-The application will be mainly built following the FLUX architecture pattern and uses React.js for its frontend. Therefore, it will consist of multiple, highly dynamic components.
+The application consists of multiple, highly dynamic components which are implemented with React.js. You can follow the development process in the [roadmap](https://github.com/GI4U/SmartMirror/projects/1).
 
 ## Installation
 First you have to install all required dependencies. Go into the project's directory and run the following commands:
