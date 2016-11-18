@@ -1,3 +1,8 @@
+/**
+ * Copyright 2016 Marius Runde
+ * 
+ * Gulp tasks to make the application ready to go.
+ */
 'use strict';
 
 // --------------------------------------------------
@@ -7,7 +12,6 @@
 // Required modules
 const babelify   = require('babelify');
 const browserify = require('browserify');
-const colors     = require('colors');
 const gulp       = require('gulp');
 const clean      = require('gulp-clean');
 const source     = require('vinyl-source-stream');
