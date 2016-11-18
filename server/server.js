@@ -1,3 +1,8 @@
+/**
+ * Copyright 2016 Marius Runde
+ * 
+ * Web server to host the Smart Mirror application.
+ */
 'use strict';
 
 // --------------------------------------------------
